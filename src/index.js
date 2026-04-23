@@ -449,7 +449,7 @@ export const getIconKeyFromFilename = (filename) => {
       return lastExtension;
     }
 
-    for (let index = 1; index < parts.length; index += 1) {
+    for (let index = 1; index < parts.length - 1; index += 1) {
       const extension = parts.slice(index).join('.');
       if (icons[extension]) {
         return extension;

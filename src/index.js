@@ -437,14 +437,14 @@ export const getIconKeyFromFilename = (filename) => {
     return 'default';
   }
 
-  const basename = value.split(/[/\\]/).pop() ?? value;
+  const basename = value.split(/[/\\]/).pop();
   if (icons[basename]) {
     return basename;
   }
 
   const parts = basename.split('.');
   if (parts.length > 1) {
-    const lastExtension = parts[parts.length - 1];
+    const lastExtension = parts.at(-1);
     if (icons[lastExtension]) {
       return lastExtension;
     }

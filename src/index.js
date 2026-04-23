@@ -427,6 +427,8 @@ const createIconComponent = (iconKey, componentName) =>
     },
   });
 
+const PATH_SEPARATOR_PATTERN = /[/\\]/;
+
 export const getIconKeyFromFilename = (filename) => {
   if (typeof filename !== 'string') {
     return 'default';
@@ -437,14 +439,14 @@ export const getIconKeyFromFilename = (filename) => {
     return 'default';
   }
 
-  const basename = value.split(/[/\\]/).pop();
+  const basename = value.split(PATH_SEPARATOR_PATTERN).pop();
   if (icons[basename]) {
     return basename;
   }
 
   const parts = basename.split('.');
   if (parts.length > 1) {
-    const lastExtension = parts.at(-1);
+    const lastExtension = parts[parts.length - 1];
     if (icons[lastExtension]) {
       return lastExtension;
     }

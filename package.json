@@ -1,0 +1,17 @@
+{
+  "name": "vue-file-icons",
+  "version": "0.0.0",
+  "description": "Vue file icon components generated from extension SVG icons",
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src"
+  ],
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}

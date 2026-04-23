@@ -448,13 +448,6 @@ export const getIconKeyFromFilename = (filename) => {
     if (icons[lastExtension]) {
       return lastExtension;
     }
-
-    for (let index = 1; index < parts.length - 1; index += 1) {
-      const extension = parts.slice(index).join('.');
-      if (icons[extension]) {
-        return extension;
-      }
-    }
   }
 
   return 'default';
@@ -477,7 +470,7 @@ export const FileIcon = defineComponent({
       const iconKey = getIconKeyFromFilename(props.filename);
       return h('img', {
         ...attrs,
-        src: icons[iconKey] ?? icons.default,
+        src: icons[iconKey],
         alt: props.alt ?? `${iconKey} file icon`,
       });
     };

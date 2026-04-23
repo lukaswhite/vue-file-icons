@@ -444,8 +444,13 @@ export const getIconKeyFromFilename = (filename) => {
 
   const parts = basename.split('.');
   if (parts.length > 1) {
-    for (let index = parts.length - 1; index > 0; index -= 1) {
-      const extension = parts[index];
+    const lastExtension = parts[parts.length - 1];
+    if (icons[lastExtension]) {
+      return lastExtension;
+    }
+
+    for (let index = 1; index < parts.length; index += 1) {
+      const extension = parts.slice(index).join('.');
       if (icons[extension]) {
         return extension;
       }
